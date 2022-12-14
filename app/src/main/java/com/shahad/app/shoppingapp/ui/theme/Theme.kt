@@ -5,6 +5,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -34,11 +35,16 @@ fun ShoppingAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
     } else {
         LightColorPalette
     }
+    val appColor = if(darkTheme) darkAppColor() else lightAppColor()
 
-    MaterialTheme(
-        colors = colors,
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
+    CompositionLocalProvider(
+        LocalColorsProvider provides  appColor
+    ) {
+        MaterialTheme(
+            colors = colors,
+            typography = Typography,
+            shapes = Shapes,
+            content = content
+        )
+    }
 }
