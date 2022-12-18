@@ -1,6 +1,7 @@
 package com.shahad.app.shoppingapp.di
 
 import com.google.gson.GsonBuilder
+import com.shahad.app.shoppingapp.BuildConfig
 import com.shahad.app.shoppingapp.data.remote.ShoppingService
 import dagger.*
 import dagger.hilt.InstallIn
@@ -23,7 +24,7 @@ object NetworkModule {
     ): ShoppingService {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("BuildConfig.BASE_URL")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(gsonConverterFactory)
             .build()
             .create(ShoppingService::class.java)

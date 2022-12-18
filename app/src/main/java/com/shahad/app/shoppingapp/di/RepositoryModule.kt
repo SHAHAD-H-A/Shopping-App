@@ -1,5 +1,7 @@
 package com.shahad.app.shoppingapp.di
 
+import com.shahad.app.shoppingapp.data.repository.repositories.ShoppingRepositoryImp
+import com.shahad.app.shoppingapp.domain.repostiories.ShoppingRepository
 import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -9,22 +11,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
-//    @Singleton
-//    @Binds
-//    abstract fun provideCharacterRepository(
-//        impl: CharactersRepositoryImp
-//    ): CharactersRepository
-//
-//    @Singleton
-//    @Binds
-//    abstract fun provideCreatorRepository(
-//        impl: CreatorsRepositoryImp
-//    ): CreatorsRepository
-//
-//    @Singleton
-//    @Binds
-//    abstract fun provideSeriesRepository(
-//        impl: SeriesRepositoryImp
-//    ): SeriesRepository
+    @Singleton
+    @Binds
+    abstract fun provideRepository(
+        impl: ShoppingRepositoryImp
+    ): ShoppingRepository
 
 }
