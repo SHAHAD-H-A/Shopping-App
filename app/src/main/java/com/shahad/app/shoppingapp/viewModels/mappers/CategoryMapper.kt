@@ -20,7 +20,8 @@ fun Product.toProductUI(): ProductUI {
         name = this.name,
         brandName = this.brandName,
         imageUrl = this.imageUrl,
-        pop = if(this.isNew) "New" else this.getDiscountPercent(),
+        isPop = this.isNew || this.isDiscount,
+        pop = if(this.isNew) "NEW" else this.getDiscountPercent(),
         discount = if(isDiscount) this.discount else 0,
         isDiscount = this.isDiscount,
         price = this.price,
@@ -29,5 +30,5 @@ fun Product.toProductUI(): ProductUI {
 }
 
 private fun Product.getDiscountPercent(): String {
-    return "-${((price - discount) / price) * 100}%"
+    return "-${(((price - discount).div(price.toDouble())) * 100).toInt()}%"
 }

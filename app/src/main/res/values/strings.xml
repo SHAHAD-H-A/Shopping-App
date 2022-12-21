@@ -5,4 +5,6 @@
     <string name="bag">Bag</string>
     <string name="favorite">Favorite</string>
     <string name="profile">Profile</string>
+    <string name="fashion_sale">Fashion sale</string>
+    <string name="view_all">View all</string>
 </resources>

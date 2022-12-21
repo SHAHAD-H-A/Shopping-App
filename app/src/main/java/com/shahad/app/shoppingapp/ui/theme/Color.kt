@@ -16,7 +16,9 @@ data class AppColor(
     val primary: Color,
     val background: Color,
     val gray: Color,
-    val secondary: Color
+    val secondary: Color,
+    val primaryText: Color,
+    val secondaryText: Color,
 )
 
 val LocalColorsProvider = staticCompositionLocalOf { lightAppColor()}
@@ -30,22 +32,30 @@ fun darkAppColor(
     primary: Color = Color(0xFFEF3651),
     background: Color = Color(0xFF1E1F28),
     gray: Color = Color(0xFFABB4BD),
-    secondary: Color = Color(0xFF2A2C36)
+    secondary: Color = Color(0xFF2A2C36),
+    primaryText: Color = Color(0xFFF6F6F6),
+    secondaryText: Color = Color(0xFFABB4BD)
 ): AppColor = AppColor(
     primary = primary,
     background = background,
     gray = gray,
-    secondary = secondary
+    secondary = secondary,
+    primaryText = primaryText,
+    secondaryText = secondaryText
 )
 
 fun lightAppColor(
     primary: Color = Color(0xFFDB3022) ,
     background: Color = Color(0xFFF9F9F9),
     gray: Color = Color(0xFF9B9B9B),
-    secondary: Color = Color.White
+    secondary: Color = Color.White,
+    primaryText: Color = Color(0xFF222222),
+    secondaryText: Color = Color(0xFF9B9B9B)
 ): AppColor = AppColor(
     primary = primary,
     background = background,
     gray = gray,
-    secondary = secondary
+    secondary = secondary,
+    primaryText = primaryText,
+    secondaryText = secondaryText
 )

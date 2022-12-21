@@ -5,6 +5,7 @@ data class ProductUI(
     val name: String,
     val brandName: String,
     val imageUrl: String,
+    val isPop: Boolean,
     val pop: String,
     val discount: Int,
     val isDiscount: Boolean,

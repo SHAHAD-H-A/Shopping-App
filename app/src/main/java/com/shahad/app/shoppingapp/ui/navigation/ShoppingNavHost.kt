@@ -1,10 +1,8 @@
 package com.shahad.app.shoppingapp.ui.navigation
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -24,6 +22,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.navigationBarsWithImePadding
 import com.shahad.app.shoppingapp.ui.screens.homeRoute
 import com.shahad.app.shoppingapp.ui.theme.appColors
 
@@ -71,7 +71,8 @@ fun ShoppingNavHost(
                     )
                 }
             }
-        }
+        },
+        modifier = Modifier.navigationBarsPadding()
     ) { innerPadding ->
         NavHost(
             navController = navController,
