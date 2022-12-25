@@ -86,7 +86,7 @@ fun HomeScreen(
                     .fillParentMaxHeight(0.5f)
             ){
                 Image(
-                    painter = painterResource(id = R.drawable.main_image),
+                    painter = painterResource(id = R.drawable.image),
                     contentDescription =null,
                     modifier = Modifier.matchParentSize(),
                     contentScale = ContentScale.Crop
