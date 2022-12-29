@@ -1,9 +1,13 @@
 package com.shahad.app.shoppingapp.data.repository.repositories
 
+import com.shahad.app.shoppingapp.data.mapper.toBrand
 import com.shahad.app.shoppingapp.data.mapper.toCategory
+import com.shahad.app.shoppingapp.data.mapper.toFashionProduct
 import com.shahad.app.shoppingapp.data.remote.ShoppingService
 import com.shahad.app.shoppingapp.data.repository.BaseRepository
+import com.shahad.app.shoppingapp.domain.entity.Brand
 import com.shahad.app.shoppingapp.domain.entity.Category
+import com.shahad.app.shoppingapp.domain.entity.FashionProduct
 import com.shahad.app.shoppingapp.domain.repostiories.ShoppingRepository
 import javax.inject.Inject
 
@@ -29,6 +33,18 @@ class ShoppingRepositoryImp @Inject constructor(
 
     override suspend fun getAccessoriesCategory(limit: Int): Category? {
         return  tryTo { shoppingService.getAccessoriesCategory(limit) }?.toCategory()
+    }
+
+    override suspend fun getNewArrival(): List<FashionProduct>? {
+        return tryTo { shoppingService.getNewArrival() }?.map { it.toFashionProduct() }
+    }
+
+    override suspend fun getBrands(): List<Brand>? {
+        return tryTo { shoppingService.getBrands() }?.map { it.toBrand() }
+    }
+
+    override suspend fun getRecommendedForYou(): List<FashionProduct>? {
+        return tryTo { shoppingService.getRecommendedForYou() }?.map { it.toFashionProduct() }
     }
 
 }
